@@ -1,0 +1,44 @@
+package printstyle;
+
+import java.util.Scanner;
+
+import main.Process;
+
+public class LeftPyramid implements PrintStyle{
+	
+	@Override
+	public void print() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Input pyramid level: "); 
+		int max = sc.nextInt();
+		System.out.println("====================");
+		System.out.println("\n\n");
+		int i=1;
+		int count = 1;
+		do{
+			int[] times = new int[count];
+			for (int k = 0; k < times.length; k++) {
+				times[k] = i;
+				
+				i++;
+			}
+			for (int k = 1; k < 10; k++) {
+				for (int l = 0; l < times.length; l++) {
+					System.out.print(times[l]+" "+Process.style.toString()+" "+k+" = "+cal(times[l],k)+"\t");
+		
+				}
+				System.out.println();
+				
+			}
+			System.out.println();	
+			count++;
+		}while(count <= max);
+		
+	}
+	
+	public int cal(int i, int j){
+		return i*j;
+		
+	}
+
+}
